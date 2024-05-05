@@ -7,7 +7,7 @@ const Header = () => {
     active && (
       <header className="bg-lime-400 flex p-4 justify-between items-center h-[10vh]">
         <LogoBtn></LogoBtn>
-        <nav>NAVEGACion</nav>
+        <nav>navegacion</nav>
       </header>
     )
   );

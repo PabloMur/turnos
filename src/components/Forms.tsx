@@ -1,4 +1,5 @@
 "use client";
+import { useUserIsLogged } from "@/hooks";
 import { GetTurnoBtn } from "./ui/Buttons";
 import { CustomInput, CustomTimeInput, DateInput } from "./ui/CustomInput";
 
@@ -22,8 +23,6 @@ export const FormTurno = () => {
       date,
       time,
     };
-
-    console.log(data);
   };
 
   return (
@@ -33,8 +32,18 @@ export const FormTurno = () => {
     >
       <div className="w-full">
         <div className="flex justify-center items-center w-full gap-3">
-          <CustomInput label="Ingresa tu nombre:" type="text" name="name" />
-          <CustomInput label="Ingresa tu email:" type="email" name="email" />
+          <CustomInput
+            label="Ingresa tu nombre:"
+            type="text"
+            name="name"
+            required={true}
+          />
+          <CustomInput
+            label="Ingresa tu email:"
+            type="email"
+            name="email"
+            required={true}
+          />
         </div>
         <div className="w-full flex gap-3">
           <DateInput label="Fecha Alternativa:" name="dateAlt" />
@@ -43,5 +52,47 @@ export const FormTurno = () => {
         <GetTurnoBtn />
       </div>
     </form>
+  );
+};
+
+export const FormLoginAdmin = () => {
+  const userStatus = useUserIsLogged();
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    alert("hola");
+  };
+
+  return (
+    !userStatus && (
+      <div className="h-full  flex justify-center items-center p-4">
+        <div className="bg-[#18181b] rounded p-4 h-3/4 w-1/3 flex flex-col justify-between">
+          <form onSubmit={handleSubmit}>
+            <CustomInput
+              name="email"
+              type="email"
+              label="Ingresa tu email:"
+              required={true}
+            ></CustomInput>
+            <CustomInput
+              name="password"
+              type="password"
+              label="Contraseña:"
+              required={true}
+            ></CustomInput>
+            <button className="bg-lime-400 p-2 rounded-lg w-full text-black font-bold mt-4">
+              ingresar
+            </button>
+          </form>
+          <div className="h-[1px] w-2/3 bg-white m-auto"></div>
+          <form>
+            <p>
+              Aca tiene que estar la opcion tradicional y la de logueo con
+              google creo, hayq que ver cual es la opcion mas segura, o sino la
+              que te envia un codigo al email.
+            </p>
+          </form>
+        </div>
+      </div>
+    )
   );
 };

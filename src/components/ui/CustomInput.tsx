@@ -2,13 +2,14 @@ type InputType = {
   type: string;
   label: string;
   name: string;
+  required?: boolean;
 };
 
 type DateInputProps = {
   label: string;
   name: string;
 };
-export const CustomInput = ({ type, label, name }: InputType) => {
+export const CustomInput = ({ type, label, name, required }: InputType) => {
   return (
     <label className="w-full">
       <p className="font-bold">{label}</p>
@@ -16,6 +17,7 @@ export const CustomInput = ({ type, label, name }: InputType) => {
         type={type}
         className="text-black w-full rounded-lg p-2 my-1"
         name={name}
+        required={required}
       />
     </label>
   );

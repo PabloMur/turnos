@@ -1,8 +1,11 @@
+import { FormLoginAdmin } from "@/components/Forms";
+
 const AdminPage = () => {
   return (
-    <div className="bg-orange-400 h-[90vh] w-full flex justify-center items-center p-4">
-      <div className="bg-purple-400 w-1/2 h-full"></div>
-      <div className="bg-black w-1/2 h-full"></div>
+    <div className="bg-orange-400 h-[100vh] w-full flex justify-center items-center">
+      <div className="bg-black w-full h-full">
+        <FormLoginAdmin></FormLoginAdmin>
+      </div>
     </div>
   );
 };

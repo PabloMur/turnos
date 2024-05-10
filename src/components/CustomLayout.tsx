@@ -2,6 +2,7 @@
 import { RecoilRoot } from "recoil";
 import { Loader } from "./Loader";
 import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 const CustomLayout = ({ children }: any) => {
   return (
@@ -9,6 +10,7 @@ const CustomLayout = ({ children }: any) => {
       <Loader></Loader>
       <Header></Header>
       {children}
+      <Footer></Footer>
     </RecoilRoot>
   );
 };

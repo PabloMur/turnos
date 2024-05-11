@@ -5,10 +5,6 @@ type InputType = {
   required?: boolean;
 };
 
-type DateInputProps = {
-  label: string;
-  name: string;
-};
 export const CustomInput = ({ type, label, name, required }: InputType) => {
   return (
     <label className="w-full">
@@ -21,6 +17,11 @@ export const CustomInput = ({ type, label, name, required }: InputType) => {
       />
     </label>
   );
+};
+
+type DateInputProps = {
+  label: string;
+  name: string;
 };
 
 export const DateInput: React.FC<DateInputProps> = ({ label, name }) => {
@@ -75,7 +76,6 @@ export const CustomTimeInput = ({ label, name }: any) => {
 
   const handleInputChange = (e: any) => {
     const valorSeleccionado = e.target.value;
-    console.log("Hora seleccionada:", valorSeleccionado);
   };
 
   return (
@@ -88,6 +88,41 @@ export const CustomTimeInput = ({ label, name }: any) => {
         className="block w-full mt-1 p-2 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500"
       >
         {generarOpcionesDeHora().map((hora) => (
+          <option key={hora} value={hora}>
+            {hora}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+};
+
+type CustomTimeInputProps = {
+  label: string;
+  name: string;
+  availableHours: string[]; // Array de horas disponibles (por ejemplo: ['09:00', '09:30', '10:00', ...])
+};
+
+export const CustomTimeInputTest: React.FC<CustomTimeInputProps> = ({
+  label,
+  name,
+  availableHours,
+}) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const valorSeleccionado = e.target.value;
+    console.log(valorSeleccionado);
+  };
+
+  return (
+    <label htmlFor={name} className="font-bold text-black w-full">
+      <p>{label}</p>
+      <select
+        name={name}
+        id={name}
+        onChange={handleInputChange}
+        className="block w-full mt-1 p-2 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500"
+      >
+        {availableHours.map((hora) => (
           <option key={hora} value={hora}>
             {hora}
           </option>

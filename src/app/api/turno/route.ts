@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { firestore } from "@/lib/firebaseConn";
 
 //por el momento esto no tiene uso, quisa mas adelante
+//uno del los posibles usos es traernos la data del dia X ... y asi saber si hay horas disponibles o no
+//por ejemplo, en la url viaja el "2024-23-05" -> con esto nos podemos traer la data de ese dia, y en base a eso nutrir el componente de las horas
 export function GET() {
   try {
     return NextResponse.json({

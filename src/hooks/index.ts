@@ -11,6 +11,10 @@ export function useGoTo() {
 
 export function useUserIsLogged() {
   const userLogStatus = useRecoilValue(userLoggedAtom);
-  console.log(userLogStatus);
   return userLogStatus;
+}
+
+export function useSetAppointment() {
+  console.log("Deberia deberia deberia");
+  return false;
 }

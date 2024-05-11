@@ -1,17 +1,24 @@
 "use client";
 import { useUserIsLogged } from "@/hooks";
 import { GetTurnoBtn } from "./ui/Buttons";
-import { CustomInput, CustomTimeInput, DateInput } from "./ui/CustomInput";
+import {
+  CustomInput,
+  CustomTimeInput,
+  CustomTimeInputTest,
+  DateInput,
+} from "./ui/CustomInput";
 
 export const FormTurno = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const target = e.target as typeof e.target & {
       name: { value: string };
       email: { value: string };
       dateAlt: { value: string };
       time: { value: string };
     };
+
     const name = target.name.value;
     const email = target.email.value;
     const date = target.dateAlt.value;
@@ -23,6 +30,8 @@ export const FormTurno = () => {
       date,
       time,
     };
+
+    console.log(data);
   };
 
   return (
@@ -48,6 +57,11 @@ export const FormTurno = () => {
         <div className="w-full flex gap-3">
           <DateInput label="Fecha Alternativa:" name="dateAlt" />
           <CustomTimeInput label="Horario" name="time"></CustomTimeInput>
+          <CustomTimeInputTest
+            label={""}
+            name={""}
+            availableHours={["09:00", "09:30", "10:00", "10:30", "11:00"]}
+          ></CustomTimeInputTest>
         </div>
         <GetTurnoBtn />
       </div>
@@ -59,6 +73,7 @@ export const FormLoginAdmin = () => {
   const userStatus = useUserIsLogged();
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    console.log("yo se que voy a lograr grandes cosas con la programacion");
     alert("hola");
   };
 

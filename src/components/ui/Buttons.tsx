@@ -1,5 +1,6 @@
 "use client";
 import { useGoTo } from "@/hooks";
+import { Button } from "@mui/material";
 
 type GetTurnoBtnType = {
   handleClick?: any;
@@ -7,19 +8,18 @@ type GetTurnoBtnType = {
 
 export const GetTurnoBtn = ({ handleClick }: GetTurnoBtnType) => {
   return (
-    <button
-      onClick={handleClick}
-      className="bg-lime-400 p-4 rounded-lg font-bold text-black w-full mt-1"
-    >
-      Solicitar Turno
-    </button>
+    <>
+      <Button onClick={handleClick} variant="contained" color="secondary">
+        Solicitar Turno
+      </Button>
+    </>
   );
 };
 
 export const LogoBtn = () => {
   const goto = useGoTo();
   const handleClick = () => {
-    goto("/");
+    goto("/admin");
   };
   return (
     <button className="text-black font-bold" onClick={handleClick}>

@@ -79,7 +79,7 @@ export const FormLoginAdmin = () => {
 
   return (
     !userStatus && (
-      <div className="h-full  flex justify-center items-center p-4">
+      <div className="h-full bg-black/90 absolute left-0 right-0 flex justify-center items-center p-4">
         <div className="bg-[#18181b] rounded p-4 h-3/4 w-1/3 flex flex-col justify-between">
           <form onSubmit={handleSubmit}>
             <CustomInput

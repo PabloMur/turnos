@@ -7,5 +7,5 @@ export const loaderAtom = atom({
 
 export const userLoggedAtom = atom({
   key: "userLoggedAtom",
-  default: false,
+  default: true,
 });

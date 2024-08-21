@@ -1,21 +1,21 @@
+import TextField from "@mui/material/TextField";
+
 type InputType = {
-  type: string;
-  label: string;
-  name: string;
+  type?: string;
+  label?: string;
+  name?: string;
   required?: boolean;
 };
 
 export const CustomInput = ({ type, label, name, required }: InputType) => {
   return (
-    <label className="w-full">
-      <p className="font-bold">{label}</p>
-      <input
-        type={type}
-        className="text-black w-full rounded-lg p-2 my-1"
-        name={name}
-        required={required}
-      />
-    </label>
+    <TextField
+      id="outlined-basic"
+      label={label}
+      variant="outlined"
+      color="secondary"
+      className="w-full"
+    />
   );
 };
 
